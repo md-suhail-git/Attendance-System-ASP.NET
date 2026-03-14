@@ -1,0 +1,176 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="AttendanceSystemDBModel3" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Attendance">
+    <Key>
+      <PropertyRef Name="AttendanceID" />
+    </Key>
+    <Property Name="AttendanceID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EmployeeID" Type="Int32" Nullable="false" />
+    <Property Name="AttendanceDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="InTime" Type="DateTime" Precision="3" />
+    <Property Name="BreakIn" Type="DateTime" Precision="3" />
+    <Property Name="BreakOut" Type="DateTime" Precision="3" />
+    <Property Name="LunchIn" Type="DateTime" Precision="3" />
+    <Property Name="LunchOut" Type="DateTime" Precision="3" />
+    <Property Name="OutTime" Type="DateTime" Precision="3" />
+    <Property Name="FinalOut" Type="DateTime" Precision="3" />
+    <Property Name="TotalHours" Type="Decimal" Precision="17" Scale="6" annotation:StoreGeneratedPattern="Computed" />
+    <Property Name="OvertimeHours" Type="Decimal" Precision="18" Scale="6" annotation:StoreGeneratedPattern="Computed" />
+    <Property Name="CreatedAt" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Employee" Relationship="Self.FK_Attendance_Employees" FromRole="Attendance" ToRole="Employees" />
+  </EntityType>
+  <EntityType Name="AttendanceHeader">
+    <Key>
+      <PropertyRef Name="AttendanceID" />
+    </Key>
+    <Property Name="AttendanceID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EmployeeID" Type="Int32" Nullable="false" />
+    <Property Name="ShiftID" Type="Int32" Nullable="false" />
+    <Property Name="AttendanceDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Status" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedAt" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Employee" Relationship="Self.FK_AH_Emp" FromRole="AttendanceHeader" ToRole="Employees" />
+    <NavigationProperty Name="Shift" Relationship="Self.FK_AH_Shift" FromRole="AttendanceHeader" ToRole="Shifts" />
+    <NavigationProperty Name="AttendanceLogs" Relationship="Self.FK_AL_Att" FromRole="AttendanceHeader" ToRole="AttendanceLog" />
+  </EntityType>
+  <EntityType Name="AttendanceLog">
+    <Key>
+      <PropertyRef Name="LogID" />
+    </Key>
+    <Property Name="LogID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AttendanceID" Type="Int32" Nullable="false" />
+    <Property Name="PunchType" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+    <Property Name="PunchTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CreatedAt" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="AttendanceHeader" Relationship="Self.FK_AL_Att" FromRole="AttendanceLog" ToRole="AttendanceHeader" />
+  </EntityType>
+  <EntityType Name="Employee">
+    <Key>
+      <PropertyRef Name="EmployeeID" />
+    </Key>
+    <Property Name="EmployeeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EmployeeCode" Type="String" MaxLength="6" FixedLength="false" Unicode="false" annotation:StoreGeneratedPattern="Computed" />
+    <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="FullName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Phone" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedAt" Type="DateTime" Precision="3" />
+    <Property Name="ShiftID" Type="Int32" />
+    <NavigationProperty Name="Attendances" Relationship="Self.FK_Attendance_Employees" FromRole="Employees" ToRole="Attendance" />
+    <NavigationProperty Name="AttendanceHeaders" Relationship="Self.FK_AH_Emp" FromRole="Employees" ToRole="AttendanceHeader" />
+    <NavigationProperty Name="Shift" Relationship="Self.FK_Employees_Shift" FromRole="Employees" ToRole="Shifts" />
+  </EntityType>
+  <EntityType Name="Shift">
+    <Key>
+      <PropertyRef Name="ShiftID" />
+    </Key>
+    <Property Name="ShiftID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ShiftName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="StartTime" Type="Time" Nullable="false" Precision="7" />
+    <Property Name="EndTime" Type="Time" Nullable="false" Precision="7" />
+    <Property Name="PunchInStart" Type="Time" Nullable="false" Precision="7" />
+    <Property Name="PunchInEnd" Type="Time" Nullable="false" Precision="7" />
+    <Property Name="PunchOutStart" Type="Time" Precision="7" />
+    <Property Name="PunchOutEnd" Type="Time" Precision="7" />
+    <NavigationProperty Name="AttendanceHeaders" Relationship="Self.FK_AH_Shift" FromRole="Shifts" ToRole="AttendanceHeader" />
+    <NavigationProperty Name="Employees" Relationship="Self.FK_Employees_Shift" FromRole="Shifts" ToRole="Employees" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <Association Name="FK_Attendance_Employees">
+    <End Role="Employees" Type="Self.Employee" Multiplicity="1" />
+    <End Role="Attendance" Type="Self.Attendance" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employees">
+        <PropertyRef Name="EmployeeID" />
+      </Principal>
+      <Dependent Role="Attendance">
+        <PropertyRef Name="EmployeeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AH_Emp">
+    <End Role="Employees" Type="Self.Employee" Multiplicity="1" />
+    <End Role="AttendanceHeader" Type="Self.AttendanceHeader" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employees">
+        <PropertyRef Name="EmployeeID" />
+      </Principal>
+      <Dependent Role="AttendanceHeader">
+        <PropertyRef Name="EmployeeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AH_Shift">
+    <End Role="Shifts" Type="Self.Shift" Multiplicity="1" />
+    <End Role="AttendanceHeader" Type="Self.AttendanceHeader" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Shifts">
+        <PropertyRef Name="ShiftID" />
+      </Principal>
+      <Dependent Role="AttendanceHeader">
+        <PropertyRef Name="ShiftID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AL_Att">
+    <End Role="AttendanceHeader" Type="Self.AttendanceHeader" Multiplicity="1" />
+    <End Role="AttendanceLog" Type="Self.AttendanceLog" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AttendanceHeader">
+        <PropertyRef Name="AttendanceID" />
+      </Principal>
+      <Dependent Role="AttendanceLog">
+        <PropertyRef Name="AttendanceID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Employees_Shift">
+    <End Role="Shifts" Type="Self.Shift" Multiplicity="0..1" />
+    <End Role="Employees" Type="Self.Employee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Shifts">
+        <PropertyRef Name="ShiftID" />
+      </Principal>
+      <Dependent Role="Employees">
+        <PropertyRef Name="ShiftID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="AttendanceSystemDBEntities5" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Attendances" EntityType="Self.Attendance" />
+    <EntitySet Name="AttendanceHeaders" EntityType="Self.AttendanceHeader" />
+    <EntitySet Name="AttendanceLogs" EntityType="Self.AttendanceLog" />
+    <EntitySet Name="Employees" EntityType="Self.Employee" />
+    <EntitySet Name="Shifts" EntityType="Self.Shift" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+    <AssociationSet Name="FK_Attendance_Employees" Association="Self.FK_Attendance_Employees">
+      <End Role="Employees" EntitySet="Employees" />
+      <End Role="Attendance" EntitySet="Attendances" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AH_Emp" Association="Self.FK_AH_Emp">
+      <End Role="Employees" EntitySet="Employees" />
+      <End Role="AttendanceHeader" EntitySet="AttendanceHeaders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AH_Shift" Association="Self.FK_AH_Shift">
+      <End Role="Shifts" EntitySet="Shifts" />
+      <End Role="AttendanceHeader" EntitySet="AttendanceHeaders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AL_Att" Association="Self.FK_AL_Att">
+      <End Role="AttendanceHeader" EntitySet="AttendanceHeaders" />
+      <End Role="AttendanceLog" EntitySet="AttendanceLogs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Employees_Shift" Association="Self.FK_Employees_Shift">
+      <End Role="Shifts" EntitySet="Shifts" />
+      <End Role="Employees" EntitySet="Employees" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

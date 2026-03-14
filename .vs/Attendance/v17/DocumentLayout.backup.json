@@ -1,0 +1,53 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\VisualStudio Projects\\Attendance\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{F59E552A-AFBC-4B95-99F2-4876BDE66744}|Attendance.csproj|c:\\visualstudio projects\\attendance\\newreport.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F59E552A-AFBC-4B95-99F2-4876BDE66744}|Attendance.csproj|solutionrelative:newreport.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F59E552A-AFBC-4B95-99F2-4876BDE66744}|Attendance.csproj|c:\\visualstudio projects\\attendance\\model34.edmx||{C99AEA30-8E36-4515-B76F-496F5A48A6AA}|",
+      "RelativeMoniker": "D:0:0:{F59E552A-AFBC-4B95-99F2-4876BDE66744}|Attendance.csproj|solutionrelative:model34.edmx||{C99AEA30-8E36-4515-B76F-496F5A48A6AA}|"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 1,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedHeight": 359,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "NewReport.aspx.cs",
+              "DocumentMoniker": "C:\\VisualStudio Projects\\Attendance\\NewReport.aspx.cs",
+              "RelativeDocumentMoniker": "NewReport.aspx.cs",
+              "ToolTip": "C:\\VisualStudio Projects\\Attendance\\NewReport.aspx.cs*",
+              "RelativeToolTip": "NewReport.aspx.cs*",
+              "ViewState": "AgIAALYAAAAAAAAAAAAUwMEAAAAHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-02T11:49:49.422Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Model34.edmx [Diagram1]",
+              "DocumentMoniker": "C:\\VisualStudio Projects\\Attendance\\Model34.edmx",
+              "RelativeDocumentMoniker": "Model34.edmx",
+              "ToolTip": "C:\\VisualStudio Projects\\Attendance\\Model34.edmx [Diagram1]",
+              "RelativeToolTip": "Model34.edmx [Diagram1]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001116|",
+              "WhenOpened": "2025-12-16T11:00:45.306Z",
+              "EditorCaption": " [Diagram1]"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

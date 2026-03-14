@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="fe53f0da6c754a60909ad0a2fe0305d9" Name="Diagram1">
+        <EntityTypeShape EntityType="passportModel.Applicant" Width="1.5" PointX="1" PointY="17" IsExpanded="true" />
+        <EntityTypeShape EntityType="passportModel.ApplicationForm" Width="1.5" PointX="3.5" PointY="14.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="passportModel.ApplicationStatusHistory" Width="1.5" PointX="5.25" PointY="2.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="passportModel.AppointmentSchedule" Width="1.5" PointX="8.25" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="passportModel.BiometricData" Width="1.5" PointX="9" PointY="8.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="passportModel.DispatchLog" Width="1.5" PointX="8.25" PointY="18.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="passportModel.DocumentChecklist" Width="1.5" PointX="9.375" PointY="11.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="passportModel.FileForwardingLog" Width="1.5" PointX="9.125" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="passportModel.PassportBooklet" Width="1.5" PointX="5.625" PointY="17.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="passportModel.PaymentTransaction" Width="1.5" PointX="0.5" PointY="22.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="passportModel.PoliceVerificationReport" Width="1.5" PointX="11" PointY="23.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="passportModel.PoliceVerificationRequest" Width="1.5" PointX="5.875" PointY="25" IsExpanded="true" />
+        <EntityTypeShape EntityType="passportModel.PSKDecisionDetail" Width="1.5" PointX="6.75" PointY="28.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="passportModel.PSKVisitDetail" Width="1.5" PointX="2.375" PointY="31.75" IsExpanded="true" />
+        <AssociationConnector Association="passportModel.FK__Applicati__Appli__4F7CD00D" ManuallyRouted="false" />
+        <AssociationConnector Association="passportModel.FK__Application__ARN__02FC7413" ManuallyRouted="false" />
+        <AssociationConnector Association="passportModel.FK__Appointment__ARN__59FA5E80" ManuallyRouted="false" />
+        <AssociationConnector Association="passportModel.FK__BiometricDa__ARN__656C112C" ManuallyRouted="false" />
+        <AssociationConnector Association="passportModel.FK__DocumentChe__ARN__619B8048" ManuallyRouted="false" />
+        <AssociationConnector Association="passportModel.FK__FileForward__ARN__6C190EBB" ManuallyRouted="false" />
+        <AssociationConnector Association="passportModel.FK__PassportBoo__ARN__7A672E12" ManuallyRouted="false" />
+        <AssociationConnector Association="passportModel.FK__PaymentTran__ARN__5441852A" ManuallyRouted="false" />
+        <AssociationConnector Association="passportModel.FK__PoliceVerif__ARN__6FE99F9F" ManuallyRouted="false" />
+        <AssociationConnector Association="passportModel.FK__PoliceVerif__ARN__75A278F5" ManuallyRouted="false" />
+        <AssociationConnector Association="passportModel.FK__PSKDecision__ARN__693CA210" ManuallyRouted="false" />
+        <AssociationConnector Association="passportModel.FK__PSKVisitDet__ARN__5DCAEF64" ManuallyRouted="false" />
+        <AssociationConnector Association="passportModel.FK__DispatchL__Passp__7F2BE32F" ManuallyRouted="false" />
+        <AssociationConnector Association="passportModel.FK__PoliceVer__PVReq__74AE54BC" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
